@@ -59,25 +59,29 @@ function App() {
 
       <div className="container my-3">
 
-        <Routes>
+       <Routes>
+  
+  <Route path="/" element={<Navigate to="/home" />} />
 
-          <Route
-            path="/about"
-            element={<About mode={mode} />}
-          />
+  <Route
+    path="/home"
+    element={
+      <TextForm
+        showAlert={showAlert}
+        mode={mode}
+      />
+    }
+  />
 
-          <Route
-            path="/home"
-            element={
-              <TextForm
-                showAlert={showAlert}
-                mode={mode}
-              />
-            }
-          />
-          <Route path="/" element={<Navigate to="/home" />} />
+  <Route
+    path="/about"
+    element={<About mode={mode} />}
+  />
 
-        </Routes>
+  {/* fallback route */}
+  <Route path="*" element={<Navigate to="/home" />} />
+
+</Routes>
 
       </div>
 
